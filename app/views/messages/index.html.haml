@@ -1,0 +1,45 @@
+.wrapper
+  = render "side_bar"
+  = render "main_chat"
+  .side
+    .side__header
+      .side__header__box
+        %p masa
+        %ul
+          = link_to "#" do
+            %li.i.fa.fa-cog
+          = link_to "#" do
+            %li.i.fa.fa-edit
+    .side__groups
+      .side__groups__name
+        %p.name techcamp
+      .side__groups__message
+        %p.message まだメッセージがありません
+  .main
+    .main__header
+      .main__header__group
+        %h.group__name test
+        %p Member : masa
+      .main__header__edit_btn
+        = link_to "#" do
+          %p Edit
+    .main__messages
+      .main__messages__list
+        .main__messages__list__data
+          %p.message_name masa
+          %p.date 2019/11/20(wed)17:43:01
+        .main__messages__list__chat
+          %p.chat おはよう！
+        .main__messages__list__data
+          %p.message_name masa
+          %p.date 2019/11/20(wed)17:43:34
+        .main__messages__list__chat
+          %p.chat 今日は夜から雨
+    .main__form
+      %form.new-message
+        .input-box
+          %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+          %label{class: "input-box__image"}
+            = icon('fas','image')
+            %input{type: "file", class: "input-box__image__file"}
+        %input{type: "submit",value: "Send", class: "submit-btn"}
