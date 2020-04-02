@@ -2,8 +2,7 @@
 @import "modules/messages";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-$main_color:  #ffffff; 
-$font_size: 16px;
+@import "modules/variables";
 
 .wrapper{
   width: 100%;
