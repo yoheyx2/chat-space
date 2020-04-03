@@ -4,12 +4,15 @@
   .side
     .side__header
       .side__header__box
-        %p masa
+        %p 
+          = current_user.name
         %ul
-          = link_to "#" do
-            %li.i.fa.fa-cog
-          = link_to "#" do
-            %li.i.fa.fa-edit
+          %li
+            = link_to edit_user_path(current_user) do
+              = icon('fas', 'cog', class: 'icon')
+          %li
+            = link_to "#" do
+              = icon('fas', 'pen-square', class: 'icon')
     .side__groups
       .side__groups__name
         %p.name techcamp
