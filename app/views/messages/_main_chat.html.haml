@@ -1,28 +1,23 @@
 .main
   .main__header
     .main__header__group
-      %h.group__name test
-      %p Member : masa
+      %h.group__name
+        #{@group.name}
+      .main__header__group__user
+        Member：
+        %ul
+          - @group.users.each do |user|
+            %li= user.name
     .main__header__edit_btn
-      = link_to "localhost:3000/groups/1/edit" do
+      = link_to edit_group_path(current_user) do
         %p Edit
   .main__messages
-    .main__messages__list
-      .main__messages__list__data
-        %p.message_name masa
-        %p.date 2019/11/20(wed)17:43:01
-      .main__messages__list__chat
-        %p.chat おはよう！
-      .main__messages__list__data
-        %p.message_name masa
-        %p.date 2019/11/20(wed)17:43:34
-      .main__messages__list__chat
-        %p.chat 今日は夜から雨
+    = render @messages
   .main__form
-    %form.new-message
+    = form_for [@group, @message] do |f|
       .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__image"}
-          = icon('fas','image')
-          %input{type: "file", class: "input-box__image__file"}
-      %input{type: "submit",value: "Send", class: "submit-btn"}
+        =f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+        = f.label :image, class: 'input-box__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'input-box__image__file'
+      = f.submit 'Send', class: 'form__submit'
