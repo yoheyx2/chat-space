@@ -45,6 +45,7 @@
         font-weight: bold;
         a {
           text-decoration: none;
+          color: $main_color;
         }
       }
       &__message {
@@ -72,10 +73,15 @@
           color: #333333;
           font-weight: bold;
         }
-        p {
+        &__user {
+          list-style: none;
+          display: flex;
           margin: 15px 40px 0;
           font-size: 12px;
           color: #999999;
+          li {
+            display: inline;
+          }
         }
       }
       &__edit_btn {

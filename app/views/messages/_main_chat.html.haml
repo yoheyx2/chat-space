@@ -1,10 +1,15 @@
 .main
   .main__header
     .main__header__group
-      %h.group__name test
-      %p Member : masa
+      %h.group__name
+        #{@group.name}
+      .main__header__group__user
+        Member：
+        %ul
+          - @group.users.each do |user|
+            %li= user.name
     .main__header__edit_btn
-      = link_to "localhost:3000/groups/1/edit" do
+      = link_to edit_group_path(current_user) do
         %p Edit
   .main__messages
     = render @messages
